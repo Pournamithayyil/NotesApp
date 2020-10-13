@@ -1,0 +1,63 @@
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 80%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+span{
+	background-color:#52527a;
+	color:#fff;padding:8px;
+	border-radius: 5px;
+	box-shadow: 4px 4px 5px grey;
+	font-size: 0.9em;
+}
+</style>
+
+</head>
+
+<body>
+	<div class="container">
+
+<h4> Listing Posts </h4>
+<hr>
+ <span id="new"><i class="fa fa-plus">
+         	<a href="<%= new_post_path %>" style="text-decoration: none;color:white;">
+          </i> Create Post </a>
+ </span>
+<hr>
+<table>
+	<thead>
+		<tr>
+			<th>Title </th>
+			<th> Body </th>
+			<th> Tag  </th>
+			<th> </th>
+		</tr>
+
+	</thead>
+
+	<tbody>
+		<% @posts.each do |post|%>
+		<tr>
+			<td><%= post.title%></td>
+			<td><%= post.body%></td>
+			<td><%= post.tag%></td>
+			<td><%= link_to 'View', post_path(post)%></td>
+
+		</tr>
+		<%end%>
+	</tbody>
+	</table>
+</div>
+</body>
