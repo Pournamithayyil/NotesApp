@@ -4,26 +4,14 @@
 <h4>Create new post</h4>
 <hr>
 <%= form_with scope: :post ,url: posts_path,:html=> {class: "form-horizontal",role:"form"}  do |form|%>
- <% if @post.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@post.errors.count, "error") %> prohibited
-        this post from being saved:
-      </h2>
-      <ul>
-        <% @post.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+ 
 	<div class="form-group">
 		<div class= "control-label col-sm-2">
 	
 		<%= form.label :title %> 
 	</div>
 	<div class="col-sm-8">
-		<%= form.text_field :title, class:"form-control",placeholder:"Title",:style => "padding:5px;font-size:0.9em;" %>
+		<%= form.text_field :title, class:"form-control",placeholder:"Title",:style => "padding:5px;font-size:0.9em;",:required => true %>
 	</div>
 </div>
 
@@ -47,9 +35,13 @@
 	</div>
 </div>
 	<br>
+
+
 <div class="form-group">
-		<div class= "control-label col-sm-2">
-	<%= form.submit "Save"%>
+	<div class= "control-label col-sm-2">
+	</div>
+		 <div class="col-xs-4">
+	<%= form.submit "Save",class:"form-control" ,style:"background-color:gray;color:white"%>
 </div>
 </div>
 
